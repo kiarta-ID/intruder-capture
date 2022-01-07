@@ -11,18 +11,22 @@
             display: inline-block;
         }
     </style>
-    <link rel="{{ asset('/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/bootstrap/css/bootstrap.min.css') }}">
 </head>
 
 <body>
     {{ $images->links('vendor.pagination.bootstrap-4') }}
 
-    @foreach($images as $image)
-    <figure>
-        <img src="/storage/{{ $image->image_url }}" width="200px">
-        <figcaption>{{ $image->created_at }}</figcaption>
-    </figure>
-    @endforeach
+    <div class="row">
+        @foreach($images as $image)
+        <div class="col-sm-6 col-md-3">
+            <figure>
+                <img src="/storage/{{ $image->image_url }}" width="200px">
+                <figcaption>{{ $image->created_at }}</figcaption>
+            </figure>
+        </div>
+        @endforeach
+    </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="{{ asset('/bootstrap/js/bootstrap.min.js') }}"></script>
 </body>
